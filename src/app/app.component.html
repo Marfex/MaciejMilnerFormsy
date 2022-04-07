@@ -1,0 +1,67 @@
+<div>
+  <h2>REACTIVE FORM</h2>
+  <form [formGroup]="person" (ngSubmit)="onSubmit()">
+    <div formGroupName="data">
+      <h3>Dane Podstawowe</h3>
+      <p>
+        <label for="first-name">Imie: </label>
+        <input id="first-name" type="text" formControlName="firstName" />
+      </p>
+
+      <p>
+        <label for="last-name">Nazwisko: </label>
+        <input id="last-name" type="text" formControlName="lastName" />
+      </p>
+
+      <p>
+        <label for="e_mail">Email: </label>
+        <input id="e_mail" type="text" formControlName="e_mail" />
+      </p>
+    </div>
+
+    <div formGroupName="telefon">
+      <h3>-</h3>
+      <p>
+        <label for="kier">Telefon stacjonarny kierunkowy: </label>
+        <input id="kier" type="text" formControlName="kier" />
+        <input id="numers" type="text" formcontrolName="numers" />
+        <label for="wewn">wewn: </label>
+        <input id="wewn" type="text" formcontrolName="wewn" />
+      </p>
+      <p>
+        <label for="numerk">Telefon komórkowy: </label>
+        <input id="numerk" type="text" formcontrolName="numerk" />
+        <label for="numerk"> np. (501234567) </label>
+      </p>
+    </div>
+    <div formGroupName="faktura">
+      <h3>Dane do wystawienia faktury</h3>
+      <p>
+        <label for="odbiorca">Odbiorca </label>
+        <label for="pryw">Osoba prywatna: </label>
+        <input
+          id="pryw"
+          type="radio"
+          name="odbiorca"
+          value="pryw"
+          formcontrolName="pryw"
+        />
+        <label for="firma">Firma: </label>
+        <input
+          id="firma"
+          type="radio"
+          name="odbiorca"
+          value="firma"
+          formcontrolName="firma"
+        />
+      </p>
+    </div>
+    <button type="submit" [disabled]="!person.valid" (click)="person.reset()">
+      Submit
+    </button>
+  </form>
+</div>
+
+<hr />
+
+<app-templateform></app-templateform>
