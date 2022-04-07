@@ -1,0 +1,117 @@
+<h2>TEMPLATE FORM</h2>
+
+<form #daneForm="ngForm" (ngSubmit)="OnSubmit()">
+  <div class="dane_pod">
+    <h3>Dane kontaktowe</h3>
+    <p>
+      <label for="imie"
+        >Imie:
+        <input
+          type="text"
+          name="imie"
+          id="imie"
+          [(ngModel)]="dane.imie"
+          #imie="ngModel"
+          required
+        />
+      </label>
+    </p>
+    <p>
+      <label for="nazwisko"
+        >Nazwisko:
+        <input
+          type="text"
+          name="nazwisko"
+          id="nazwisko"
+          [(ngModel)]="dane.nazwisko"
+          required
+          #nazwisko="ngModel"
+        />
+      </label>
+    </p>
+    <p>
+      <label for="email"
+        >Email:
+        <input
+          type="email"
+          name="email"
+          id="email"
+          [(ngModel)]="dane.email"
+          required
+          #email="ngModel"
+        />
+      </label>
+    </p>
+  </div>
+  <div class="dane_telefon">
+    <h2>-</h2>
+    <p>
+      <label for="stacjonarny_kierunkowy">
+        Telefon Stacjonarny kierunkowy:
+      </label>
+      <input
+        type="text"
+        name="stacjonarny_kierunkowy"
+        id="stacjonarny_kierunkowy"
+        [(ngModel)]="dane.telefonStacjonarnyKierunkowy"
+        #stac_kier="ngModel"
+      />
+      <input
+        type="text"
+        name="stacjonarny_numer"
+        id="stacjonarny_numer"
+        [(ngModel)]="dane.telefonStacjonarny"
+        required
+        #stacjonarny="ngModel"
+      />
+      <label>wewn:</label>
+      <input
+        type="text"
+        name="stacjonarny_wewn"
+        id="stacjonarny_wewn"
+        [(ngModel)]="dane.telefonStacjonarnywewn"
+        #stac_wewn="ngModel"
+      />
+    </p>
+
+    <label for="komorkowy">Telefon Komórkowy:</label>
+    <input
+      type="text"
+      name="komorkowy"
+      id="komorkowy"
+      [(ngModel)]="dane.telefonKomorkowy"
+      required
+      #komorkowy="ngModel"
+    />
+  </div>
+  <div class="dane_fak">
+    <h3>Dane do wystawienia faktury</h3>
+    <div class="odbiorca">
+      Odbiorca:
+      <label for="osobaPrywatna"
+        ><input
+          required
+          type="radio"
+          name="faktura"
+          id="osobaPrywatna"
+          value="osobaPrywatna"
+          [(ngModel)]="dane.odbiorca"
+        />
+        Osoba Prywatna</label
+      >
+      <label for="firma">
+        <input
+          type="radio"
+          name="faktura"
+          id="firma"
+          value="firma"
+          [(ngModel)]="dane.odbiorca"
+        />
+        Firma</label
+      ><br />
+    </div>
+  </div>
+  <div class="submit_holder">
+    <input type="submit" value="Submit" [disabled]="!daneForm.form.valid" />
+  </div>
+</form>
